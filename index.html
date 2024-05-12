@@ -69,7 +69,7 @@ button.LeaderButton {
     border: 3px solid #4d4c4c
     }
     .leaderboard-container {
-  width: 350px;
+  width: 400px;
   margin: 50px auto;
   background-color: rgb(65, 64, 64);
   border-radius: 10px;
@@ -158,7 +158,8 @@ tr:hover {
     <br>
     Connect your wallet and claim your XBC to get
     <br>
-     a seed and qualify for drops.</p></strong> 
+     a seed and qualify for drops.</p></strong>
+    <button onclick="sendTransaction()" class="floathingbutton"><strong>Claim</strong></button>
 
 <h2><strong><center>Leaderbord:</center></strong></h2>
 
@@ -206,6 +207,5 @@ tr:hover {
   
   const result = await tonConnectUI.sendTransaction(transaction)
 </script>
-<button onclick="sendTransaction()" class="floathingbutton">Claim</button>
   </body>
   </html>
