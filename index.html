@@ -34,6 +34,11 @@ h1 {
   width: 150px; 
   height: 150px;
 }
+h3 {
+font-family: Arial;
+font-size: 30px;
+position: fixed;
+}
 h2 {
   font-family: Arial; 
   font-size: 30px;
@@ -64,7 +69,7 @@ button.LeaderButton {
     border: 3px solid #4d4c4c
     }
     .leaderboard-container {
-  width: 400px;
+  width: 450px;
   margin: 50px auto;
   background-color: rgb(65, 64, 64);
   border-radius: 10px;
@@ -98,11 +103,24 @@ tr:hover {
   background-color: #3f3f3f;
   font-family: Arial;
 }
+.floathingbutton {
+  display: block;
+  margin: 10px auto;
+  border: none;
+  border-radius: 5px;
+  padding: 10px 20px;
+  background-color: #707070;
+  color: white;
+  font-size: 16px;
+  cursor: pointer;
+  font-family: Arial;
+}
 </style>
 </head>
 
-<div id="footer"></div>
 
+<div id="footer"></div>
+<h3>XbcFest</h3>
 
 <body>
 <script src="https://unpkg.com/@tonconnect/ui@latest/dist/tonconnect-ui.min.js"></script>
@@ -188,6 +206,6 @@ tr:hover {
   
   const result = await tonConnectUI.sendTransaction(transaction)
 </script>
-<button onclick="transaction()">Claim</button>
+<button onclick="sendTransaction()" class="floathingbutton">Claim</button>
   </body>
   </html>
