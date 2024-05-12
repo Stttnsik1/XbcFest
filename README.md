@@ -106,7 +106,7 @@ tr:hover {
 
 <body>
 <script src="https://unpkg.com/@tonconnect/ui@latest/dist/tonconnect-ui.min.js"></script>
-<div id="ton-connect" style="position: absolute; top: 3%; right: 5%"></div>
+<div id="ton-connect" style="position: fixed; top: 3%; right: 5%"></div>
 <script>
     const tonConnectUI = new TON_CONNECT_UI.TonConnectUI({
         manifestUrl: 'https://raw.githubusercontent.com/Stttnsik1/tonconnect-manifest.json/main/tonconnect-manifest.json',
