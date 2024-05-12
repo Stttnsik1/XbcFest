@@ -222,25 +222,5 @@ tr:hover {
       </tr>
     </table>
   </div>
- 
-<script>
-  import TonConnectUI from '@tonconnect/ui';
-
-  const tonConnectUI = new TonConnectUI({ //connect application
-      manifestUrl: 'https://raw.githubusercontent.com/Stttnsik1/tonconnect-manifest.json/main/tonconnect-manifest.json',
-      buttonRootId: 'ton-connect'
-  });
-  
-  const transaction = {
-      messages: [
-          {
-              address: "UQBQ3GE8djotFZNWqLWz0cgSAE9j37c82Ll3yLqPKZes1goR", // destination address
-              amount: "20000000" //Toncoin in nanotons
-          }
-      ]
-  }
-  
-  const result = await tonConnectUI.sendTransaction(transaction)
-</script>
   </body>
   </html>
