@@ -69,7 +69,7 @@ button.LeaderButton {
     border: 3px solid #4d4c4c
     }
     .leaderboard-container {
-  width: 395px;
+  width: 350px;
   margin: 50px auto;
   background-color: rgb(65, 64, 64);
   border-radius: 10px;
